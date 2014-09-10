@@ -12,12 +12,11 @@ public class PerimeterTester
     {
 	Rectangle myRect = new Rectangle(10, 30, 50, 60);
 	double perimeter = myRect.getWidth() * 2 + myRect.getHeight() * 2;
-	System.out.print("The height is: ");
-	System.out.println(myRect.getHeight());
-	System.out.print("The width is: ");
-	System.out.println(myRect.getWidth());
-	System.out.print("The perimeter is: ");
-	System.out.println(perimeter);
+	System.out.println("The height is: " + myRect.getHeight() + '\n' + 
+	"The width is: " + myRect.getWidth());
+	System.out.println("The perimeter is: " + perimeter);
+	System.out.println("The expected answer is: " + 220.0);
+	//	System.out.println(perimeter);
     }
 }
 	    
