@@ -1,0 +1,1 @@
+Make a program that uses the brighter() method of the color object. Use it on the colors red = 50, green = 100, blue = 150

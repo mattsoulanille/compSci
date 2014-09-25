@@ -1,0 +1,23 @@
+/**
+ * Prints the coordinates of four rectangles
+ * 
+ * @author Matthew Soulanille 
+ * @version 2014-9-10
+ */
+
+import java.awt.Rectangle;
+
+public class FourRectanglePrinter
+{
+    public static void main(String[] args)
+    {
+	Rectangle myRect = new Rectangle(0, 0, 20, 40);
+	System.out.println(myRect);
+	myRect.translate(20, 0);
+	System.out.println(myRect);
+	myRect.translate(0, 40);
+	System.out.println(myRect);
+	myRect.translate(-20, 0);
+	System.out.println(myRect);
+    }
+}

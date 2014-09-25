@@ -1,0 +1,29 @@
+/** 
+ * EllipseComponent.java
+ * @author Matthew Soulanille
+ * @version 2013-09-11
+ */
+
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Ellipse2D;
+import javax.swing.JComponent;
+
+public class EllipseComponent extends JComponent
+{
+    public void paintComponent(Graphics g)
+    {
+        // Recover Graphics 2D
+        Graphics2D g2 = (Graphics2D) g;
+    
+        // Construct Ellipse
+        Ellipse2D.Float bubble = new Ellipse2D.Float(100, 200, 50, 100);
+        // ... and don't forget to draw it!
+        g2.draw(bubble);
+    
+        // Move it
+	bubble.setFrame(400, 300, 200, 600);
+        // ... and don't forget to draw it!
+        g2.draw(bubble);   
+    }
+}
