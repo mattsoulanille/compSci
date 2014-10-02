@@ -1,0 +1,13 @@
+/**
+ * Tester for CashRegister class from Horstmann, Ch 4.
+ * 
+ * @author Matthew Soulanille
+ * @version 2013-09-29
+ */
+
+public class CashRegisterTester
+{
+
+    public static void main(String args[])
+    {
+	CashRegister walmart = new CashRegister
