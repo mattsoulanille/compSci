@@ -39,8 +39,23 @@ public class Card
     
     public String getDescription()
     {
-	String n = c.substring(0,1);
-	String s = c.substring(1, 2);
+	String n;
+	String s;
+	if (c.length() == 2) {
+	    n = c.substring(0,1).toUpperCase();
+	    s = c.substring(1, 2).toUpperCase();
+	}
+	else if (c.length() == 3) {
+	    n = c.substring(0,2).toUpperCase();
+	    s = c.substring(2,3).toUpperCase();
+	}
+	// I could do this in python with not if statements :P
+	else {
+	    return "Unknown";
+	}
+	if ((cardType.get(n) == null) || (suit.get(s) == null)) {
+	    return "Unknown";
+	}
 	return cardType.get(n) + " of " + suit.get(s);
 	
 
