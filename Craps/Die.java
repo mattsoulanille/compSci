@@ -44,11 +44,13 @@ public class Die
 	if (value % 2 == 1) {
 	    outstr += out[1];
 	}
-
+	else if (value == 6) {
+	    outstr += out[4];
+	}
 	//row 4
 	outstr += out[0];
 	//row 5
-	if (value == 0) {
+	if (value == 1) {
 	    outstr += out[0];
 	}
 	else if (value < 4) {

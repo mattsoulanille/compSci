@@ -12,14 +12,14 @@ public class Craps
     private static Die d2 = new Die();
     private static int sum;
     
-
-    public static boolean check(String in, boolean yes) {
+    //Checks if a string means yes or no. def means default return value
+    public static boolean check(String in, boolean def) {
 	if (in.equals("")) {
-	    return yes;
+	    return def;
 	}
 	return in.substring(0,1).equalsIgnoreCase("y");
     }
-
+    //Checks the first roll of dice
     public static int check1(int roll)
     {
 	if (roll == 11 || roll == 7) {
@@ -31,12 +31,12 @@ public class Craps
 	return 1;
 
     }
-    
-    public static void roll() {
+    //rolls dice, sets values, and prints dice. Returns the sum of dice.
+    public static int roll() {
 	
 	System.out.println("Press return to roll dice");
 	int rolls[] = new int[] {d1.roll(), d2.roll()};
-	sum = rolls[0] + rolls[1];
+	int sum = rolls[0] + rolls[1];
 	
 	sc.nextLine();
 	System.out.println(d1);
@@ -44,26 +44,28 @@ public class Craps
 	System.out.println(d2);
 
 	System.out.println(rolls[0] + " + " + rolls[1] + " = " + sum);
+	return sum;
 
     }
     private static boolean cont = true;
+
+    //Runs play until the user wants to quit
     public static void main(String[] args)
     {
 	sc = new Scanner(System.in);
-	while (cont) {
-	    play();
+	while (play()) {
+	    continue;
 	}
 
     }
-
-    public static void play()
+    //play craps function. Essentially the main loop.
+    public static boolean play()
     {
 
 	System.out.println("Would you like to play Craps? (Y/n)");
 
 	if (!check(sc.nextLine(), true)) {
-	    cont = false;
-	    return;
+	    return false;
 	}
 	System.out.println("Would you like instructions? (y/N)");
 
@@ -72,28 +74,28 @@ public class Craps
 	}
 
 	System.out.println("Playing Craps: ");
-	roll();
+	sum = roll();
 	    
 	if (check1(sum) == 2) {
 	    System.out.println("You win!");
-	    return;
+	    return true;
 	}
 	else if (check1(sum) == 0) {
 	    System.out.println("You lose!");
-	    return;
+	    return true;
 	}
 
 	int point = sum;
 	System.out.println("Your point is " + point);
 	while (true) {
-	    roll();
+	    sum = roll();
 	    if (point == sum) {
 		System.out.println("You win!");
-		return;
+		return true;
 	    }
 	    if (sum == 7) {
 		System.out.println("You lose!");
-		return;
+		return true;
 	    }
 	    
 	}
