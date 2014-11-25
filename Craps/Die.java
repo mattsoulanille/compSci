@@ -5,11 +5,16 @@
 */
 import java.util.Random;
 
+//rolls and formats strings for dice
 public class Die
 {
     private Random rand = new Random();
     private int value;
     private String[] out = new String[5];
+
+    /**
+       Constructs die and string outputs
+     */
     public Die()
     {
 	out[0] = "|           |\n";
@@ -19,11 +24,19 @@ public class Die
 	out[4] = "|   *   *   |\n";
     }
 
+    /**
+      Rolls dice and sets the value.
+      @return value of roll
+     */
     public int roll()
     {
 	value = rand.nextInt(6) + 1;
 	return value;
     }
+    /**
+       Formats a string that represents the die
+       @return string representation of die
+     */
     public String toString()
     {
 	String outstr = "";
@@ -41,7 +54,7 @@ public class Die
 	outstr += out[0];
 	//row 3
 
-	if (value % 2 == 1) {
+	if (value % 2 == 1) { //I don't like typing
 	    outstr += out[1];
 	}
 	else if (value == 6) {

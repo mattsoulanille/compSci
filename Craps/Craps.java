@@ -5,6 +5,10 @@
 */
 
 import java.util.Scanner;
+
+/**
+Plays craps
+ */
 public class Craps
 {
     private static Scanner sc;
@@ -12,14 +16,23 @@ public class Craps
     private static Die d2 = new Die();
     private static int sum;
     
-    //Checks if a string means yes or no. def means default return value
+    /**
+       Checks if a string means yes or no. def means default return value
+       @param input string
+       @param default return value
+       @return whether or not the string is true or the default value if there is no string.
+     */
     public static boolean check(String in, boolean def) {
 	if (in.equals("")) {
 	    return def;
 	}
 	return in.substring(0,1).equalsIgnoreCase("y");
     }
-    //Checks the first roll of dice
+    /**
+       Checks the first roll of dice
+       @param dice value
+       @return 0,1,or 2 depending on whether the player loses, continues, or wins.
+     */
     public static int check1(int roll)
     {
 	if (roll == 11 || roll == 7) {
@@ -31,7 +44,10 @@ public class Craps
 	return 1;
 
     }
-    //rolls dice, sets values, and prints dice. Returns the sum of dice.
+    /**
+       rolls dice and prints dice. Returns the sum of dice.
+       @return sum of dice
+    */
     public static int roll() {
 	
 	System.out.println("Press return to roll dice");
@@ -47,9 +63,11 @@ public class Craps
 	return sum;
 
     }
-    private static boolean cont = true;
 
-    //Runs play until the user wants to quit
+    /**
+       Runs the play method until the user wants to quit
+       
+    */
     public static void main(String[] args)
     {
 	sc = new Scanner(System.in);
@@ -58,7 +76,10 @@ public class Craps
 	}
 
     }
-    //play craps function. Essentially the main loop.
+    /**
+       Play craps function. Essentially the main loop funciton.
+       @return whether to continue playing or not
+    */
     public static boolean play()
     {
 
