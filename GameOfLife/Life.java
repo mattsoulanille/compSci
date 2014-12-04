@@ -43,14 +43,14 @@ public class Life
 	    System.out.println(gameBoard.toString());
 
 	    gameBoard.step();
-	    /*
+
 	    try {
 		Thread.sleep(100);                 //1000 milliseconds is one second.
 	    }
 	    catch(InterruptedException ex) {
 		Thread.currentThread().interrupt();
 	    }
-	    */
+
 	}
     }
 
