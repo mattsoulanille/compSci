@@ -66,6 +66,7 @@ public class Board
 	    }
 	}
 	boardDeepCopy(nextBoard, cBoard);
+	
     }
     public void boardDeepCopy(boolean[][] a1, boolean[][] a2)
     {
@@ -94,10 +95,10 @@ public class Board
 	for (int y = 0; y < dimensions[1]; y++) {
 	    for (int x = 0; x < dimensions[0]; x++) {
 		if (cBoard[y][x]) {
-		    ret += "0";
+		    ret += "0 ";
 		}
 		else {
-		    ret += ".";
+		    ret += ". ";
 		}
 	    }
 	    ret += "\n";

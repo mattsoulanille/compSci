@@ -5,26 +5,40 @@
 */
 
 import java.lang.Math;
+import java.util.Scanner;
 public class Life
 {
     private static Board gameBoard;
     private static int[] dimensions;
+    private static Scanner in;
     
     public static void main(String[] args)
     {
-	dimensions = new int[] {150, 50};
+	in = new Scanner(System.in);
+	dimensions = new int[] {100, 50};
 	gameBoard = new Board(dimensions[0],dimensions[1]);
-
-	gliderGun(dimensions[0] / 2, dimensions[1] / 2);
 	
-	/*
-	for (int y = 0; y < dimensions[1]; y++) {
-	    for (int x = 0; x < dimensions[0]; x++) {
-		
-		gameBoard.set(x,y,Math.random() < 0.5);
+	System.out.println("What would you like?\n(1) Random board\n(2) Gospher glider gun");
+	int choice = in.nextInt();
+	if (choice == 1) {
+	    System.out.print("Enter percentage of board to fill: ");
+	    double percent = (double) in.nextInt();
+	    if (percent > 100 || percent < 0) {
+		System.out.println("Not okay input");
+	    }
+	    
+	    for (int y = 0; y < dimensions[1]; y++) {
+		for (int x = 0; x < dimensions[0]; x++) {
+		    gameBoard.set(x,y,Math.random() < percent / 100);
+		}
 	    }
 	}
-	*/
+	else if (choice == 2) {
+	    gliderGun(dimensions[0] / 8, dimensions[1] / 4);
+	}
+	else {
+	    return;
+	}
 	while (true) {
 	    System.out.println(gameBoard.toString());
 
@@ -39,6 +53,8 @@ public class Life
 	    */
 	}
     }
+
+
 
     public static void gliderGun(int p1, int p2)
     {
