@@ -39,11 +39,14 @@ public class Life
 	else {
 	    return;
 	}
+	int generation = 0;
 	while (true) {
 	    System.out.println(gameBoard.toString());
-
+	    System.out.println("Generation: " + generation);
+	    
 	    gameBoard.step();
-
+	    generation ++;
+	    
 	    try {
 		Thread.sleep(100);                 //1000 milliseconds is one second.
 	    }
