@@ -4,6 +4,7 @@
  * @version 2013-09-09
  */
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -19,6 +20,7 @@ public class RectangleComponent extends JComponent
         // Construct rectangle
         Rectangle box = new Rectangle(100, 100, 200, 300);
         // ... and don't forget to draw it!
+	g2.setColor(Color.red);
         g2.draw(box);
     
         // Move it

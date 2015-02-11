@@ -137,9 +137,9 @@ public class PictureTester
     //testMirrorVertical();
     //testMirrorVerticalRightToLeft();
     //testMirrorHorizontal();
-      //    testMirrorHorizontalBotToTop();
-      //    testMirrorTemple();
-      //testMirrorArms();
+    testMirrorHorizontalBotToTop();
+    testMirrorTemple();
+    testMirrorArms();
     testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
