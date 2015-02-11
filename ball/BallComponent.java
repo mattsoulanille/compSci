@@ -11,8 +11,8 @@ import javax.swing.JComponent;
 public class BallComponent extends JComponent
 {
     Ball aBall;
-    int WIDTH;
-    int HEIGHT;
+    static int WIDTH;
+    static int HEIGHT;
  
 
     /**
@@ -28,6 +28,12 @@ public class BallComponent extends JComponent
 	WIDTH = width;
 	HEIGHT = height;
 	aBall = new Ball(xLoc, yLoc, theVx, theVy, theSize);
+    }
+
+    public static void resizeCoords(int x, int y)
+    {
+	WIDTH = x;
+	HEIGHT = y;
     }
     
     /**
@@ -53,12 +59,19 @@ public class BallComponent extends JComponent
 	//	aBall.accelerate();
 	int[] pos = aBall.getPos();
 	int[] vel = aBall.getVel();
-	if (pos[0] + aBall.size >= WIDTH) {
+	if (pos[0] + aBall.size >= WIDTH && vel[0] > 1) {
 	    aBall.setvX(-1*vel[0]);
 	}
-	if (pos[1] + aBall.size >= HEIGHT) {
+	if (pos[1] + aBall.size + 20 >= HEIGHT && vel[1] > 1) {
+	    aBall.setvY(-1*vel[1]);
+	}
+	if (pos[0] < 0 && vel[0] < 0) {
+	    aBall.setvX(-1*vel[0]);
+	}
+	if (pos[1] < 0 && vel[1] < 0) {
 	    aBall.setvY(-1*vel[1]);
 	}
         repaint();
+	//	System.out.println(WIDTH + "  " + HEIGHT);
     }
 }
